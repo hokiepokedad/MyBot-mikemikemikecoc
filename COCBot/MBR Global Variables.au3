@@ -1436,3 +1436,27 @@ Global $iEnableSpellsWait[$iModeCount], $iTotalSpellSpace = 0, $bFullArmySpells 
 
 ; Splash Variables
 Global $hSplash, $hSplashProgress, $lSplashStatus, $lSplashTitle, $iTotalSteps = 11, $iCurrentStep = 0
+
+;AwesomeGamer CSV Mod
+Global $attackcsv_use_red_line = 1
+Global $TroopDropNumber = 0
+Global $remainingTroops[12][2]
+
+;CSV Deployment Speed Mod
+Global $isldSelectedCSVSpeed[$iModeCount], $iCSVSpeeds[13]
+$isldSelectedCSVSpeed[$DB] = 5
+$isldSelectedCSVSpeed[$LB] = 5
+$iCSVSpeeds[0] = .1
+$iCSVSpeeds[1] = .25
+$iCSVSpeeds[2] = .5
+$iCSVSpeeds[3] = .75
+$iCSVSpeeds[4] = 1
+$iCSVSpeeds[5] = 1.25
+$iCSVSpeeds[6] = 1.5
+$iCSVSpeeds[7] = 1.75
+$iCSVSpeeds[8] = 2
+$iCSVSpeeds[9] = 2.25
+$iCSVSpeeds[10] = 2.5
+$iCSVSpeeds[11] = 2.75
+$iCSVSpeeds[12] = 3
+

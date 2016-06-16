@@ -680,7 +680,8 @@ EndFunc   ;==>tabTHSnipe
 
 Func dbCheck()
 	If $iBotLaunchTime > 0 Then _GUICtrlTab_SetCurFocus($hGUI_SEARCH_TAB, 0) ; activate deadbase tab
-	If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps)) = $GUI_UNCHECKED Then
+	;mikemikemikecoc - Wait For Spells
+	If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps), GUICtrlRead($chkDBSpellsWait)) = $GUI_UNCHECKED Then;If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps)) = $GUI_UNCHECKED Then
 		GUICtrlSetState($chkDBActivateSearches, $GUI_CHECKED)
 		chkDBActivateSearches() ; this includes a call to dbCheckall() -> tabSEARCH()
 	Else
@@ -689,7 +690,8 @@ Func dbCheck()
 EndFunc
 
 Func dbCheckAll()
-	If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps)) = $GUI_UNCHECKED Then
+		;mikemikemikecoc - Wait For Spells
+		If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps), GUICtrlRead($chkDBSpellsWait)) = $GUI_UNCHECKED Then;If BitAND(GUICtrlRead($chkDBActivateSearches), GUICtrlRead($chkDBActivateTropies), GUICtrlRead($chkDBActivateCamps)) = $GUI_UNCHECKED Then
 		GUICtrlSetState($DBcheck, $GUI_UNCHECKED)
 	Else
 		GUICtrlSetState($DBcheck, $GUI_CHECKED)
@@ -699,7 +701,8 @@ EndFunc
 
 Func abCheck()
 	If $iBotLaunchTime > 0 Then _GUICtrlTab_SetCurFocus($hGUI_SEARCH_TAB, 1)
-	If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps)) = $GUI_UNCHECKED Then
+	;mikemikemikecoc - Wait For Spells
+	If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps), GUICtrlRead($chkABSpellsWait)) = $GUI_UNCHECKED Then;If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps)) = $GUI_UNCHECKED Then
 		GUICtrlSetState($chkABActivateSearches, $GUI_CHECKED)
 		chkABActivateSearches() ; this includes a call to abCheckall() -> tabSEARCH()
 	Else
@@ -708,7 +711,8 @@ Func abCheck()
 EndFunc
 
 Func abCheckAll()
-	If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps)) = $GUI_UNCHECKED Then
+	;mikemikemikecoc - Wait For Spells
+	If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps), GUICtrlRead($chkABSpellsWait)) = $GUI_UNCHECKED Then;If BitAND(GUICtrlRead($chkABActivateSearches), GUICtrlRead($chkABActivateTropies), GUICtrlRead($chkABActivateCamps)) = $GUI_UNCHECKED Then
 		GUICtrlSetState($ABcheck, $GUI_UNCHECKED)
 	Else
 		GUICtrlSetState($ABcheck, $GUI_CHECKED)

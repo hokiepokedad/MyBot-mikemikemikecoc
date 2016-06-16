@@ -48,8 +48,12 @@ EndIf
 #include "COCBot\functions\Config\ScreenCoordinates.au3"
 
 $sBotVersion = "v6.1.2.1" ;~ Don't add more here, but below. Version can't be longer than vX.y.z because it it also use on Checkversion()
-$sBotTitle = "My Bot " & $sBotVersion & " " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
+$sBotTitle = "My Bot " & $sBotVersion & " - mikemikemikecoc 1.0.0 " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
 
+$ichkDisableSplash = IniRead($config, "General", "ChkDisableSplash", "0")
+#include "COCBot\GUI\MBR GUI Design Splash.au3"
+
+SplashStep("Loading Android functions...")
 Opt("WinTitleMatchMode", 3) ; Window Title exact match mode
 #include "COCBot\functions\Android\Android.au3"
 
@@ -57,12 +61,15 @@ Opt("WinTitleMatchMode", 3) ; Window Title exact match mode
 #include "COCBot\functions\Other\Multilanguage.au3"
 DetectLanguage()
 
+SplashStep("Detecting Android...")
 If $aCmdLine[0] < 2 Then
 	DetectRunningAndroid()
 	If Not $FoundRunningAndroid Then DetectInstalledAndroid()
 EndIf
 ; Update Bot title
 $sBotTitle = $sBotTitle & "(" & ($AndroidInstance <> "" ? $AndroidInstance : $Android) & ")" ;Do not change this. If you do, multiple instances will not work.
+
+UpdateSplashTitle($sBotTitle)
 
 If $bBotLaunchOption_Restart = True Then
    If CloseRunningBot($sBotTitle) = True Then

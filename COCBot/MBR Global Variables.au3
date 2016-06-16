@@ -47,6 +47,7 @@
 #include <Process.au3>
 #include <GuiListView.au3>
 #include <GUIToolTip.au3>
+#include <ProgressConstants.au3> ; Added for Splash
 
 Global Const $DEFAULT_HEIGHT = 780
 Global Const $DEFAULT_WIDTH = 860
@@ -1430,4 +1431,32 @@ Global $THSnipeBeforeDBEnable = 0 , $THSnipeBeforeLBEnable = 0
 Global $THSnipeBeforeDBTiles = 0 , $THSnipeBeforeLBTiles = 0
 Global $THSnipeBeforeDBScript = 0 , $THSnipeBeforeLBScript = 0
 
+;mikemikemikecoc - Wait For Spells
+Global $iEnableSpellsWait[$iModeCount], $iTotalSpellSpace = 0, $bFullArmySpells = False
+
+; Splash Variables
+Global $hSplash, $hSplashProgress, $lSplashStatus, $lSplashTitle, $iTotalSteps = 11, $iCurrentStep = 0
+
+;AwesomeGamer CSV Mod
+Global $attackcsv_use_red_line = 1
+Global $TroopDropNumber = 0
+Global $remainingTroops[12][2]
+
+;CSV Deployment Speed Mod
+Global $isldSelectedCSVSpeed[$iModeCount], $iCSVSpeeds[13]
+$isldSelectedCSVSpeed[$DB] = 5
+$isldSelectedCSVSpeed[$LB] = 5
+$iCSVSpeeds[0] = .1
+$iCSVSpeeds[1] = .25
+$iCSVSpeeds[2] = .5
+$iCSVSpeeds[3] = .75
+$iCSVSpeeds[4] = 1
+$iCSVSpeeds[5] = 1.25
+$iCSVSpeeds[6] = 1.5
+$iCSVSpeeds[7] = 1.75
+$iCSVSpeeds[8] = 2
+$iCSVSpeeds[9] = 2.25
+$iCSVSpeeds[10] = 2.5
+$iCSVSpeeds[11] = 2.75
+$iCSVSpeeds[12] = 3
 

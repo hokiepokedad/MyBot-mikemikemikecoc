@@ -503,6 +503,11 @@ Func saveConfig() ;Saves the controls settings to the config
 	$itxtRestartDark = GUICtrlRead($txtRestartDark)
 
 	; bot options gui -> variables ----------------------------------------------------
+	If GUICtrlRead($chkDisableSplash) = $GUI_CHECKED Then
+		$ichkDisableSplash = 1
+	Else
+		$ichkDisableSplash = 0
+	EndIf
 	If GUICtrlRead($chkVersion) = $GUI_CHECKED Then
 		$ichkVersion = 1
 	Else
@@ -2139,6 +2144,7 @@ Func saveConfig() ;Saves the controls settings to the config
 
 	IniWriteS($config, "General", "ChkLanguage", $ichkLanguage)
 
+	IniWriteS($config, "General", "ChkDisableSplash", $ichkDisableSplash)
 	IniWriteS($config, "General", "ChkVersion", $ichkVersion)
 
 
@@ -2156,6 +2162,10 @@ Func saveConfig() ;Saves the controls settings to the config
 	IniWriteS($config, "attack", "ScriptDB", $scmbDBScriptName)
 
 	IniWriteS($config, "attack", "ScriptAB", $scmbABScriptName)
+	
+	; CSV Deployment Speed Mod
+	IniWriteS($config, "attack", "CSVSpeedDB", $isldSelectedCSVSpeed[$DB])
+	IniWriteS($config, "attack", "CSVSpeedAB", $isldSelectedCSVSpeed[$LB])
 
 	;MilkingAttack Options
 	IniWriteS($config, "MilkingAttack", "LocateMine", $MilkFarmLocateMine)
@@ -2235,6 +2245,19 @@ Func saveConfig() ;Saves the controls settings to the config
 	IniWriteS($config, "android", "adb.clicks.troop.deploy.size", $AndroidAdbClicksTroopDeploySize)
 
 	If $hFile <> -1 Then FileClose($hFile)
+	
+	;mikemikemikecoc - Wait For Spells
+	If GUICtrlRead($chkDBSpellsWait) = $GUI_CHECKED Then
+		IniWriteS($config, "search", "ChkDBSpellsWait", 1)
+	Else
+		IniWriteS($config, "search", "ChkDBSpellsWait", 0)
+	EndIf
+
+	If GUICtrlRead($chkABSpellsWait) = $GUI_CHECKED Then
+		IniWriteS($config, "search", "ChkABSpellsWait", 1)
+	Else
+		IniWriteS($config, "search", "ChkABSpellsWait", 0)
+	EndIf
 
 EndFunc   ;==>saveConfig
 

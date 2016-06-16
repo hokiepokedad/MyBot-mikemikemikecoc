@@ -428,6 +428,10 @@ Func readConfig($inputfile = $config, $partial = False) ;Reads config and sets i
 
 		IniReadS($scmbDBScriptName, $config, "attack", "ScriptDB", "Barch four fingers")
 		IniReadS($scmbABScriptName, $config, "attack", "ScriptAB", "Barch four fingers")
+		
+		; CSV Deployment Speed Mod
+		IniReadS($isldSelectedCSVSpeed[$DB], $config, "attack", "CSVSpeedDB", 3)
+		IniReadS($isldSelectedCSVSpeed[$LB], $config, "attack", "CSVSpeedAB", 3)
 
 		IniReadS($iActivateKQCondition, $config, "attack", "ActivateKQ", "Auto")
 		IniReadS($delayActivateKQ, $config, "attack", "delayActivateKQ", "9")
@@ -700,6 +704,7 @@ Func readConfig($inputfile = $config, $partial = False) ;Reads config and sets i
 		$iValuePBTimeForcedExit = IniRead($config, "other", "ValuePBTimeForcedExit", "15")
 
 		$ichkLanguage = IniRead($config, "General", "ChkLanguage", "1")
+		$ichkDisableSplash = IniRead($config, "General", "ChkDisableSplash", "1")
 		$ichkVersion = IniRead($config, "General", "ChkVersion", "1")
 		;InireadS(xxxx,$config, "attack", "xxxx", "0")
 		;InireadS(xxxx,$config, "attack", "xxxx", "0")
@@ -1011,6 +1016,11 @@ Func readConfig($inputfile = $config, $partial = False) ;Reads config and sets i
 		; Android Configuration
 		$AndroidAdbClicksEnabled = IniRead($config, "android", "adb.clicks.enabled", ($AndroidAdbClicksEnabled ? "1" : "0")) = "1"
 		$AndroidAdbClicksTroopDeploySize = Int(IniRead($config, "android", "adb.clicks.troop.deploy.size", $AndroidAdbClicksTroopDeploySize))
+
+		
+		;mikemikemikecoc - Wait For Spells
+		IniReadS($iEnableSpellsWait[$DB], $config, "search", "ChkDBSpellsWait", "0")
+		IniReadS($iEnableSpellsWait[$LB], $config, "search", "ChkABSpellsWait", "0")
 
 	Else
 		Return False

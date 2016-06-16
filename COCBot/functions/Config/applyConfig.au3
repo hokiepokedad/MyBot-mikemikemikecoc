@@ -1683,6 +1683,11 @@ EndIf
 
 	; apply bot options -----------------------------------------------------------------
 
+	If $ichkDisableSplash = 1 Then
+		GUICtrlSetState($chkDisableSplash, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkDisableSplash, $GUI_UNCHECKED)
+	EndIf
 	If $ichkVersion = 1 Then
 		GUICtrlSetState($chkVersion, $GUI_CHECKED)
 	Else
@@ -2265,6 +2270,14 @@ EndIf
 
 	cmbScriptNameDB()
 	cmbScriptNameAB()
+	
+	; CSV Deployment Speed Mod
+	GUICtrlSetData($sldSelectedSpeedDB, $isldSelectedCSVSpeed[$DB])
+	GUICtrlSetData($sldSelectedSpeedAB, $isldSelectedCSVSpeed[$LB])
+	
+	sldSelectedSpeedDB()
+	sldSelectedSpeedAB()	
+	
 	If $DevMode = 1 Then GUICtrlSetState($chkmakeIMGCSV, $GUI_SHOW)
     If $makeIMGCSV = 1 Then
 		GUICtrlSetState($chkmakeIMGCSV, $GUI_CHECKED)
@@ -2367,5 +2380,19 @@ _GUICtrlComboBox_SetCurSel($cmbTHSnipeBeforeLBScript, _GUICtrlComboBox_FindStrin
 
 	; Reenabling window redraw
 	If $bRedrawAtExit Then SetRedrawBotWindow(True)
+
+   ;mikemikemikecoc - Wait For Spells
+   If $iEnableSpellsWait[$DB] = 1 Then
+		 GUICtrlSetState($chkDBSpellsWait, $GUI_CHECKED)
+	  Else
+		 GUICtrlSetState($chkDBSpellsWait, $GUI_UNCHECKED)
+   EndIf
+   If $iEnableSpellsWait[$LB] = 1 Then
+		 GUICtrlSetState($chkABSpellsWait, $GUI_CHECKED)
+	  Else
+		 GUICtrlSetState($chkABSpellsWait, $GUI_UNCHECKED)
+   EndIf 
+   
+   
 
 EndFunc   ;==>applyConfig

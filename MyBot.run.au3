@@ -47,8 +47,15 @@ EndIf
 #include "COCBot\MBR Global Variables.au3"
 #include "COCBot\functions\Config\ScreenCoordinates.au3"
 
+Global $sGitHubModOwner = "mikemikemikecoc"
+Global $sGitHubModRepo = "MyBot-mikemikemikecoc"
+Global $sGitHubModLatestReleaseTag = "v1.0.0"
+Global $sModSupportUrl = "https://mybot.run/forums/index.php?/topic/19937-new-merged-mybot-6121-all-mods-in-one-v204-05-06-16/"
+
 $sBotVersion = "v6.1.2.1" ;~ Don't add more here, but below. Version can't be longer than vX.y.z because it it also use on Checkversion()
-$sBotTitle = "My Bot " & $sBotVersion & " - mikemikemikecoc 1.0.0 " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
+$sBotTitle = "My Bot " & $sBotVersion & " - mikemikemikecoc " & $sGitHubModLatestReleaseTag & " " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
+
+Global $sBotTitleDefault = $sBotTitle
 
 $ichkDisableSplash = IniRead($config, "General", "ChkDisableSplash", "0")
 #include "COCBot\GUI\MBR GUI Design Splash.au3"
